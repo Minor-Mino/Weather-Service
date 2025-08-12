@@ -50,7 +50,7 @@ class WeatherResponse:
         }
 
 class WeatherAgent:
-    """날씨 에이전트 - 기온과 강수확률만 예측"""
+    """ 날씨 에이전트 """
     
     def __init__(self, historical_data_path: str = None):
         # 환경변수에서 API 키 로드
@@ -58,7 +58,7 @@ class WeatherAgent:
         self.kma_medium_api_key = os.getenv('KMA_MEDIUM_FORECAST_API_KEY')
         
         # 과거 데이터 경로
-        self.historical_data_path = historical_data_path or os.getenv('HISTORICAL_DATA_PATH', 'data/weather_history.csv')
+        self.historical_data_path = historical_data_path or os.getenv('HISTORICAL_DATA_PATH', 'data/weather_history_data.csv')
         
         # 통계 데이터 (장기 예보용)
         self.historical_stats = None
@@ -519,11 +519,6 @@ class WeatherAgent:
             '대전': (36.3504, 127.3845), '대전광역시': (36.3504, 127.3845),
             '울산': (35.5384, 129.3114), '울산광역시': (35.5384, 129.3114),
             
-            # 도청소재지
-            '수원': (37.2636, 127.0286), '춘천': (37.8813, 127.7298),
-            '청주': (36.6424, 127.4890), '전주': (35.8242, 127.1480),
-            '포항': (36.0190, 129.3435), '창원': (35.2281, 128.6811),
-            '제주': (33.4996, 126.5312), '제주시': (33.4996, 126.5312)
         }
         
         # 정확한 매칭
